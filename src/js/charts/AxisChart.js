@@ -8,6 +8,8 @@ import { floatTwo } from '../utils/helpers';
 import { makeOverlay, updateOverlay, legendBar } from '../utils/draw';
 import { getTopOffset, getLeftOffset, MIN_BAR_PERCENT_HEIGHT, BAR_CHART_SPACE_RATIO,
 	LINE_CHART_DOT_SIZE } from '../utils/constants';
+import { shortenLargeNumber } from '../utils/draw-utils';
+
 
 export default class AxisChart extends BaseChart {
 	constructor(parent, args) {
@@ -44,6 +46,7 @@ export default class AxisChart extends BaseChart {
 		this.config.formatTooltipY = options.tooltipOptions.formatTooltipY;
 
 		this.config.valuesOverPoints = options.valuesOverPoints;
+    this.config.formatValuesOverPoints = options.formatValuesOverPoints || 0;
 	}
 
 	prepareData(data=this.data) {
@@ -243,6 +246,7 @@ export default class AxisChart extends BaseChart {
 
 					// same for all datasets
 					valuesOverPoints: this.config.valuesOverPoints,
+          formatValuesOverPoints: this.config.formatValuesOverPoints,
 					minHeight: this.height * MIN_BAR_PERCENT_HEIGHT,
 				},
 				function() {
@@ -267,6 +271,10 @@ export default class AxisChart extends BaseChart {
 							labels = d.values;
 						}
 					}
+
+          if(this.config.formatValuesOverPoints) {
+            labels = labels.map((l) => shortenLargeNumber(l));
+          }
 
 					let offsets = new Array(s.datasetLength).fill(0);
 					if(stacked) {
@@ -304,6 +312,7 @@ export default class AxisChart extends BaseChart {
 
 					// same for all datasets
 					valuesOverPoints: this.config.valuesOverPoints,
+					formatValuesOverPoints: this.config.formatValuesOverPoints,
 				},
 				function() {
 					let s = this.state;
