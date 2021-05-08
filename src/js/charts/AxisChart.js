@@ -320,6 +320,10 @@ export default class AxisChart extends BaseChart {
 					let minLine = s.yAxis.positions[0] < s.yAxis.zeroLine
 						? s.yAxis.positions[0] : s.yAxis.zeroLine;
 
+          if(this.config.formatValuesOverPoints) {
+            d.values = d.values.map((v) => shortenLargeNumber(v));
+          }
+
 					return {
 						xPositions: s.xAxis.positions,
 						yPositions: d.yPositions,
