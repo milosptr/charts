@@ -46,7 +46,7 @@ export default class AxisChart extends BaseChart {
 		this.config.formatTooltipY = options.tooltipOptions.formatTooltipY;
 
 		this.config.valuesOverPoints = options.valuesOverPoints;
-    this.config.formatValuesOverPoints = options.formatValuesOverPoints || 0;
+		this.config.formatValuesOverPoints = options.formatValuesOverPoints || 0;
 	}
 
 	prepareData(data=this.data) {
@@ -246,7 +246,7 @@ export default class AxisChart extends BaseChart {
 
 					// same for all datasets
 					valuesOverPoints: this.config.valuesOverPoints,
-          formatValuesOverPoints: this.config.formatValuesOverPoints,
+					formatValuesOverPoints: this.config.formatValuesOverPoints,
 					minHeight: this.height * MIN_BAR_PERCENT_HEIGHT,
 				},
 				function() {
@@ -272,9 +272,9 @@ export default class AxisChart extends BaseChart {
 						}
 					}
 
-          if(this.config.formatValuesOverPoints) {
-            labels = labels.map((l) => shortenLargeNumber(l));
-          }
+					if(this.config.formatValuesOverPoints) {
+						labels = labels.map((l) => shortenLargeNumber(l));
+					}
 
 					let offsets = new Array(s.datasetLength).fill(0);
 					if(stacked) {
