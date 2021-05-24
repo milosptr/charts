@@ -382,7 +382,7 @@ export default class AxisChart extends BaseChart {
 					value: value,
 					yPos: set.yPositions[index],
 					color: this.colors[i],
-					formatted: formatY ? formatY(value) : value,
+					formatted: { i: index, v: formatY ? formatY(value) : value},
 				};
 			});
 
