@@ -66,6 +66,7 @@ export default class SvgTip {
 
 		this.listValues.map((set, i) => {
 			const color = this.colors[i] || 'black';
+      console.log(set, 'set from listValues')
 			let value = set.formatted || set.formatted.v ? set.formatted : set.value;
 
 			let li = $.create('li', {
