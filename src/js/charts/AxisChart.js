@@ -374,10 +374,11 @@ export default class AxisChart extends BaseChart {
 		let formatX = this.config.formatTooltipX;
 		let formatY = this.config.formatTooltipY;
 		let titles = s.xAxis.labels;
-
+    console.log(formatY,'makeDataByIndex')
 		titles.map((label, index) => {
 			let values = this.state.datasets.map((set, i) => {
 				let value = set.values[index];
+        console.log(value, 'valueMakeDataByIndex')
 				return {
 					title: set.name,
 					value: value,
