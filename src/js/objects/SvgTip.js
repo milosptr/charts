@@ -19,8 +19,6 @@ export default class SvgTip {
 		this.top = 0;
 		this.left = 0;
 
-    console.log('SvgTip')
-
 		this.setup();
 	}
 
@@ -66,8 +64,7 @@ export default class SvgTip {
 
 		this.listValues.map((set, i) => {
 			const color = this.colors[i] || 'black';
-      console.log(set, 'set from listValues')
-			let value = set.formatted || set.formatted.v ? set.formatted : set.value;
+			let value = set.formatted.v === 0 || set.formatted.v ? set.formatted.v : set.value;
 
 			let li = $.create('li', {
 				styles: {
@@ -106,7 +103,6 @@ export default class SvgTip {
 	}
 
 	setValues(x, y, title = {}, listValues = [], index = -1) {
-    console.log(listValues, 'setValues')
 		this.titleName = title.name;
 		this.titleValue = title.value;
 		this.listValues = listValues;
