@@ -12,7 +12,7 @@ export default class BaseChart {
 	constructor(parent, options) {
 		// deepclone options to avoid making changes to orignal object
 		options = deepClone(options);
-
+    console.log('BaseChart')
 		this.parent = typeof parent === 'string'
 			? document.querySelector(parent)
 			: parent;

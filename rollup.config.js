@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 import { eslint } from 'rollup-plugin-eslint';
 import replace from 'rollup-plugin-replace';
 import uglify from 'rollup-plugin-uglify-es';
-import sass from 'node-sass';
+import sass from 'rollup-plugin-scss';
 
 // PostCSS plugins
 import postcssPlugin from 'rollup-plugin-postcss';
