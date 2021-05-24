@@ -103,6 +103,7 @@ export default class SvgTip {
 	}
 
 	setValues(x, y, title = {}, listValues = [], index = -1) {
+    console.log(x, y, 'setValues')
 		this.titleName = title.name;
 		this.titleValue = title.value;
 		this.listValues = listValues;

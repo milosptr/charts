@@ -20,6 +20,7 @@ export default class AxisChart extends BaseChart {
 
 		this.type = args.type || 'line';
 		this.init = 1;
+    console.log('Init AxisChart')
 
 		this.setup();
 	}
